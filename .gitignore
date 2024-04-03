@@ -13,3 +13,4 @@ data_*/
 *.md5
 icon.svg.import
 project.godot
+*.cfg
