@@ -7,3 +7,6 @@ res://scenes/levels/house.tres
 res://scenes/enemies/drone.gdshader
 res://scenes/enemies/scout.gdshader
 res://scenes/enemies/bug.gdshader
+res://scenes/levels/inside.tscn
+res://scenes/levels/inside.gd
+res://scenes/levels/outside.tscn

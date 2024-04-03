@@ -14,3 +14,4 @@ data_*/
 icon.svg.import
 project.godot
 *.cfg
+/.godot
