@@ -9,3 +9,7 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+*.cfg
+*.md5
+icon.svg.import
+project.godot
