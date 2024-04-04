@@ -208,7 +208,6 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/LevelBarriers/StaticBody2D" index="0"]
 position = Vector2(-1133.26, -121.125)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nd5j3")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Ground/LevelBarriers" index="1"]

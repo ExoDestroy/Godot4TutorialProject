@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c53jn8vlm8trn"]
 
-[ext_resource type="Texture2D" uid="uid://dpyrjohaomwrp" path="res://graphics/enemies/hunter/hunter.png" id="1_o141a"]
 [ext_resource type="Script" path="res://scenes/enemies/hunter.gd" id="1_y00n4"]
+[ext_resource type="Texture2D" uid="uid://cgl2ba1t6owtu" path="res://graphics/enemies/hunter/parts/torso.png" id="2_cofqj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qayqv"]
 radius = 32.0
@@ -17,12 +17,7 @@ radius = 220.0
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_y00n4")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_o141a")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -48,6 +43,17 @@ shape = SubResource("CircleShape2D_ax3xu")
 [node name="NavigationTimer" type="Timer" parent="Timers"]
 wait_time = 2.0
 autostart = true
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Torso" type="Sprite2D" parent="Skeleton2D"]
+position = Vector2(7, 0)
+texture = ExtResource("2_cofqj")
+metadata/_edit_lock_ = true
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D"]
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
