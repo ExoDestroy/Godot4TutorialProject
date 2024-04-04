@@ -1,7 +1,8 @@
 Bone2D
-Skeleton2D
 Sprite2D
+Marker2D
 Node2D
+Skeleton2D
 Timer
 Node
 NavigationAgent2D
@@ -11,4 +12,3 @@ Area2D
 CharacterBody2D
 StaticBody2D
 AnimationPlayer
-Line2D

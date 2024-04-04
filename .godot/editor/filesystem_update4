@@ -1,4 +1,4 @@
-res://scenes/levels/outside.tscn
+res://scenes/enemies/hunter.tscn
 res://scenes/enemies/bug.gd
 res://scenes/enemies/drone.gd
 res://scenes/enemies/scout.gd
@@ -7,6 +7,3 @@ res://scenes/levels/house.tres
 res://scenes/enemies/drone.gdshader
 res://scenes/enemies/scout.gdshader
 res://scenes/enemies/bug.gdshader
-res://scenes/enemies/hunter.tscn
-res://scenes/player/player.tscn
-res://scenes/enemies/car.tscn
