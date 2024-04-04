@@ -1,7 +1,8 @@
-Bone2D
+AnimationPlayer
 Sprite2D
-Marker2D
 Node2D
+Marker2D
+Bone2D
 Skeleton2D
 Timer
 Node
@@ -11,4 +12,3 @@ CollisionShape2D
 Area2D
 CharacterBody2D
 StaticBody2D
-AnimationPlayer
