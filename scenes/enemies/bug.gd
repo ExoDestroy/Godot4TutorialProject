@@ -21,8 +21,11 @@ func hit():
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 1)
 		$Node2D/HitParticles.emitting = true
 		$Node/HitTimer.start()
+		$AudioStreamPlayer2D.play()
+		
 	if health <= 0:
 		await get_tree().create_timer(.5).timeout
+		await $AudioStreamPlayer2D.finished
 		queue_free()
 
 func _on_notice_area_body_entered(_body):

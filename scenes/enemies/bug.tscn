@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c5txw5sa5xca5"]
+[gd_scene load_steps=44 format=3 uid="uid://c5txw5sa5xca5"]
 
 [ext_resource type="Texture2D" uid="uid://bmhaou6dwblgh" path="res://graphics/enemies/bug/attack/00010.png" id="1_5bv3p"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_20ddg"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dwim5nip0kvlq" path="res://graphics/enemies/bug/walk/00007.png" id="29_tmmjj"]
 [ext_resource type="Texture2D" uid="uid://4s4sb55mhhxg" path="res://graphics/enemies/bug/walk/00008.png" id="30_jpsvc"]
 [ext_resource type="Texture2D" uid="uid://btvm486wgkx8c" path="res://graphics/explosions/grunge.png" id="33_itphp"]
+[ext_resource type="AudioStream" uid="uid://dk8wk33tj6lhu" path="res://audio/organic_impact.mp3" id="34_2idqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6nso"]
 shader = ExtResource("2_u4q3p")
@@ -192,6 +193,7 @@ sprite_frames = SubResource("SpriteFrames_toel6")
 animation = &"walk"
 
 [node name="NoticeArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
@@ -229,6 +231,9 @@ one_shot = true
 
 [node name="AttackTimer" type="Timer" parent="Node"]
 wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_2idqd")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]

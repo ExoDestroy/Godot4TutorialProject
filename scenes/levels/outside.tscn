@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://breva31xcuxn1"]
+[gd_scene load_steps=30 format=3 uid="uid://breva31xcuxn1"]
 
 [ext_resource type="PackedScene" uid="uid://c6mlx4vpkqqxh" path="res://scenes/levels/level.tscn" id="1_vduhx"]
 [ext_resource type="Texture2D" uid="uid://cxen77f5h8vqp" path="res://graphics/ground/stones.png" id="2_b2umt"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://cv4lqhykfvvkb" path="res://scenes/enemies/drone.tscn" id="14_w12u6"]
 [ext_resource type="PackedScene" uid="uid://qx4vfpbfq6a3" path="res://scenes/enemies/car.tscn" id="15_8dkff"]
 [ext_resource type="PackedScene" uid="uid://c53jn8vlm8trn" path="res://scenes/enemies/hunter.tscn" id="16_0y1ns"]
+[ext_resource type="PackedScene" uid="uid://crmgne437gpyq" path="res://scenes/enemies/scout.tscn" id="17_bhnss"]
+[ext_resource type="PackedScene" uid="uid://c5txw5sa5xca5" path="res://scenes/enemies/bug.tscn" id="18_k4m2e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wk71"]
 resource_name = "walls"
@@ -276,6 +278,12 @@ position = Vector2(1255, 1235)
 [node name="Hunter" parent="Enemies" index="1" instance=ExtResource("16_0y1ns")]
 position = Vector2(2888.88, 1011)
 
+[node name="Scout" parent="Enemies" index="2" instance=ExtResource("17_bhnss")]
+position = Vector2(390.39, 822)
+
+[node name="Bug" parent="Enemies" index="3" instance=ExtResource("18_k4m2e")]
+position = Vector2(1713.71, 679)
+
 [node name="Player" parent="." index="8"]
 z_index = 2
 position = Vector2(861, 402)
@@ -293,6 +301,7 @@ position = Vector2(-2160.16, -13)
 rotation = -0.0481601
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="12"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_2rxpa")
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]

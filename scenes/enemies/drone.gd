@@ -28,7 +28,7 @@ func _process(delta):
 	if exploding:
 		var targets = get_tree().get_nodes_in_group("Entity") + get_tree().get_nodes_in_group("Container")
 		for target in targets:
-			var in_range = target.global_position.distance_to(global_position) < explosion_radius
+			var in_range: bool = target.global_position.distance_to(global_position) < explosion_radius
 			if in_range and "hit" in target:
 				target.hit()
 
@@ -38,6 +38,7 @@ func hit():
 		vulnerable = false
 		$Drone.material.set_shader_parameter("progress", 1)
 		$HitTimer.start()
+		$Sounds/HitSound.play()
 	if health <= 0:
 		$AnimationPlayer.play("explosion")
 		exploding = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv4lqhykfvvkb"]
+[gd_scene load_steps=13 format=3 uid="uid://cv4lqhykfvvkb"]
 
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_2etvm"]
 [ext_resource type="Texture2D" uid="uid://b2gxqfj6rkaxk" path="res://graphics/enemies/drone.png" id="2_urna5"]
 [ext_resource type="Shader" path="res://scenes/enemies/drone.gdshader" id="2_yygr8"]
 [ext_resource type="Texture2D" uid="uid://cpwxmhv3ukgu" path="res://graphics/explosions/explosion_3.png" id="3_6kenw"]
+[ext_resource type="AudioStream" uid="uid://cwgsndjfc8muf" path="res://audio/solid_impact.ogg" id="5_yaitl"]
+[ext_resource type="AudioStream" uid="uid://bensojvhbx7ai" path="res://audio/explosion.wav" id="6_0iw1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5xucl"]
 shader = ExtResource("2_yygr8")
@@ -99,6 +101,21 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(),
 "values": []
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sounds/ExplosionSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_0iw1p")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1d2go"]
 _data = {
@@ -112,6 +129,7 @@ collision_mask = 15
 script = ExtResource("1_2etvm")
 
 [node name="Drone" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_5xucl")
 rotation = 1.5708
 texture = ExtResource("2_urna5")
@@ -141,6 +159,13 @@ frame = 23
 libraries = {
 "": SubResource("AnimationLibrary_1d2go")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_yaitl")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Sounds"]
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
